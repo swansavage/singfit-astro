@@ -175,59 +175,6 @@ body.menu-open .mobile-drawer{
   outline-color:var(--focus-ring-on-orange);
 }
 
-.store-signal{
-  margin-top:18px;
-}
-
-.store-signal-label{
-  margin-bottom:10px;
-  color:var(--muted);
-  font-size:13px;
-  font-weight:600;
-}
-
-.official-store-badges,
-.store-signal .official-store-badges,
-.stores.official-footer-badges .official-store-badges{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.store-signal .official-store-badges{
-  margin-top:12px;
-}
-
-.official-store-badges a{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:0;
-  margin:0;
-  line-height:0;
-  background:transparent;
-  border:0;
-  border-radius:8px;
-  box-shadow:none;
-  transition:transform .18s ease, opacity .18s ease;
-}
-
-.official-store-badges a:hover{
-  transform:translateY(-1px);
-}
-
-.official-store-badges a:focus-visible{
-  outline:3px solid var(--focus-ring);
-  outline-offset:4px;
-}
-
-.official-store-badges img{
-  display:block;
-  width:auto;
-  height:46px;
-}
-
 .who-real-image-panel,
 .benefit-image.benefit-real-image{
   position:relative;
@@ -322,13 +269,7 @@ body.menu-open .mobile-drawer{
     border-radius:22px;
   }
 
-  .official-store-badges{
-    gap:10px;
-  }
-
-  .official-store-badges img{
-    height:42px;
-  }}
+}
 
 @media (max-width:560px){
 
@@ -342,12 +283,6 @@ body.menu-open .mobile-drawer{
   }
 
 }
-
-@media (max-width:420px){
-
-  .official-store-badges img{
-    height:38px;
-  }}
 
 @media (prefers-reduced-motion: reduce){
   *,
