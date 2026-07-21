@@ -18,3 +18,83 @@ const className = variant === 'audience'
   <CtaLink label={label} href={CALENDLY_URL} variant="primary" />
   <p class="section-cta-note">{note}</p>
 </div>
+
+<style>
+
+
+.section-cta{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-top:28px;
+  text-align:center;
+}
+
+.section-cta :global(.btn){
+  width:min(100%, 360px);
+}
+
+.section-cta-note{
+  max-width:30rem;
+  margin-top:10px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.section-cta-left{
+  align-items:flex-start;
+  text-align:left;
+}
+
+.section-cta-left :global(.btn){
+  width:auto;
+  max-width:100%;
+}
+
+.who-section-cta{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(24px, 4vw, 42px);
+  align-items:start;
+  justify-content:stretch;
+}
+
+.who-section-cta :global(.btn),
+.who-section-cta .section-cta-note{
+  grid-column:2;
+}
+
+@media (max-width:920px){
+
+  .section-cta-left{
+    align-items:center;
+    text-align:center;
+  }
+
+  .who-section-cta{
+    display:flex;
+  }
+
+  .section-cta-left .section-cta-note,
+.section-cta-left .section-cta-note{
+    text-align:center;
+  }
+
+  .section-cta{
+    margin-top:24px;
+  }
+}
+
+@media (max-width:720px){
+
+  .section-cta :global(.btn){
+    width:100%;
+  }
+
+  .section-cta-note{
+    font-size:14.5px;
+  }
+}
+</style>

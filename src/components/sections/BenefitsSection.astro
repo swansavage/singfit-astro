@@ -37,3 +37,215 @@ import SectionCta from '../ui/SectionCta.astro';
   </div>
   <SectionCta {...SECTION_CTAS.benefits} />
 </section>
+
+<style>
+
+
+.benefits-intro-row{
+  display:grid;
+  grid-template-columns:minmax(0, 1.3fr) minmax(190px, .72fr);
+  justify-content:space-between;
+  gap:clamp(18px, 2.6vw, 28px);
+  align-items:start;
+  max-width:1080px;
+  margin:0 auto;
+  text-align:left;
+}
+
+.benefits-intro-copy{
+  width:min(100%, 42rem);
+}
+
+.benefits-intro-copy h2{
+  max-width:100%;
+  margin-left:0;
+  margin-right:0;
+}
+
+.benefits-intro-copy .lead{
+  max-width:100%;
+  margin-top:18px;
+  margin-left:0;
+  margin-right:0;
+}
+
+.benefits-intro-media{
+  position:relative;
+  display:grid;
+  place-items:center;
+  justify-self:end;
+  align-self:start;
+  min-height:clamp(280px, 28vw, 420px);
+  padding-top:8px;
+}
+
+.benefits-intro-media::before{
+  content:"";
+  position:absolute;
+  inset:8% 5%;
+  border-radius:50%;
+  background:
+    radial-gradient(circle, rgba(122,223,240,.17) 0%, rgba(122,223,240,.08) 38%, rgba(122,223,240,0) 72%);
+  filter:blur(8px);
+  pointer-events:none;
+}
+
+.benefit-editorial{
+  display:grid;
+  gap:clamp(46px, 6vw, 72px);
+  max-width:1080px;
+  margin:clamp(34px, 4.5vw, 50px) auto 0;
+  text-align:left;
+}
+
+.benefit-row{
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) minmax(0,1fr);
+  gap:clamp(24px, 4vw, 48px);
+  align-items:center;
+  padding:clamp(18px, 2.6vw, 28px);
+  border-radius:38px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(23,33,43,.08);
+  box-shadow:0 14px 34px rgba(23,33,43,.06);
+}
+
+.benefit-row:nth-child(even){
+  grid-template-columns:minmax(0,1fr) minmax(0,.72fr);
+}
+
+.benefit-row:nth-child(even) .benefit-image{order:2}
+
+.benefit-image{
+  min-height:clamp(220px, 28vw, 310px);
+  border-radius:38px;
+  background:
+    radial-gradient(circle at 68% 28%,rgba(243,122,74,.16),transparent 26%),
+    linear-gradient(135deg,#edf8f7,#ffffff);
+  box-shadow:var(--soft-shadow);
+}
+
+.benefit-row:nth-child(2) .benefit-image{
+  background:
+    radial-gradient(circle at 24% 26%,rgba(36,159,154,.16),transparent 28%),
+    linear-gradient(135deg,#e2f5f3,#fbffff);
+}
+
+.benefit-row:nth-child(3) .benefit-image{
+  background:
+    radial-gradient(circle at 65% 30%,rgba(89,102,165,.14),transparent 28%),
+    linear-gradient(135deg,#eef2ff,#ffffff);
+}
+
+.benefit-copy h3{
+  font-size:clamp(34px, 4vw, 46px);
+  line-height:1.04;
+}
+
+.benefit-copy p{
+  max-width:34rem;
+  margin-top:14px;
+}
+
+:global(.product-phone.product-phone-intro){
+  width:min(100%, 206px);
+  transform:rotate(1.75deg);
+}
+
+@media (max-width:920px){
+
+  .benefits-intro-row{
+    grid-template-columns:1fr;
+  }
+
+  .benefits-intro-row{
+    gap:24px;
+    text-align:left;
+  }
+
+  .benefits-intro-copy{
+    width:100%;
+  }
+
+  .benefits-intro-copy h2,
+.benefits-intro-copy .lead{
+    max-width:none;
+  }
+
+  .benefits-intro-media{
+    min-height:unset;
+    padding-top:0;
+  }
+
+  :global(.product-phone.product-phone-intro){
+    width:min(100%, 194px);
+  }
+
+  .benefit-row,
+.benefit-row:nth-child(even){
+    grid-template-columns:1fr;
+  }
+
+  .benefit-row:nth-child(even) .benefit-image{
+    order:0;
+  }
+}
+
+@media (max-width:720px){
+
+  .benefit-row{
+    gap:22px;
+    padding:18px;
+    border-radius:32px;
+  }
+
+  :global(.product-phone.product-phone-intro){
+    width:min(100%, 176px);
+  }
+}
+
+@media (max-width:768px){
+  .benefits-intro-row{
+    display:block;
+    text-align:center;
+  }
+
+  .benefits-intro-copy h2,
+.benefits-intro-copy .lead{
+    margin-left:auto;
+    margin-right:auto;
+    max-width:min(31rem, 100%);
+  }
+
+  .benefits-intro-media{
+    display:none;
+  }
+
+  .benefit-editorial{
+    margin-top:30px;
+  }
+}
+
+@media (max-width:560px){
+
+  .benefit-row{
+    padding:16px;
+    border-radius:28px;
+  }
+
+  .benefits-intro-row{
+    text-align:center;
+  }
+
+  .benefits-intro-copy h2,
+.benefits-intro-copy .lead{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  :global(.product-phone.product-phone-intro){
+    width:min(100%, 166px);
+    transform:rotate(1.2deg);
+  }
+}
+</style>

@@ -35,3 +35,187 @@ import CtaLink from '../ui/CtaLink.astro';
     <p class="price-note">No obligation. Just a chance to see whether SingFit is right for your family.</p>
   </div>
 </section>
+
+<style>
+
+
+.final-cta{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(360px, 460px);
+  gap:clamp(40px, 5vw, 64px);
+  align-items:center;
+  max-width:1120px;
+  margin-inline:auto;
+}
+
+.final-copy{
+  max-width:620px;
+}
+
+.proof-line{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:32px;
+}
+
+.proof-line span{
+  display:inline-flex;
+  align-items:center;
+  min-height:36px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(23,33,43,.08);
+  color:var(--ink-soft);
+  font-size:13px;
+  font-weight:600;
+  box-shadow:0 8px 18px rgba(23,33,43,.045);
+}
+
+.price-card{
+  padding:clamp(20px, 3vw, 28px);
+  border-radius:42px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(23,33,43,.08);
+  box-shadow:0 24px 60px rgba(23,33,43,.10);
+  backdrop-filter:blur(8px);
+}
+
+.price-top{
+  padding:24px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 92% 10%,rgba(255,255,255,.52),transparent 28%),
+    linear-gradient(135deg,#e6f6f4 0%,#f5fbfb 62%,#ffffff 100%);
+  border:1px solid rgba(44,166,161,.14);
+}
+
+.price-top small{
+  display:block;
+  color:var(--teal-deep);
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:12px;
+  font-weight:700;
+}
+
+.price-inline{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  gap:8px;
+  margin-top:12px;
+}
+
+.price-inline strong{
+  color:var(--ink);
+  font-size:clamp(46px, 6vw, 60px);
+  line-height:.9;
+  letter-spacing:-.06em;
+  font-weight:600;
+}
+
+.price-inline span{
+  padding-bottom:7px;
+  color:var(--ink-soft);
+  font-size:clamp(22px, 3vw, 28px);
+}
+
+.price-sub{
+  margin-top:14px;
+  color:var(--ink-soft);
+}
+
+.price-list{
+  padding:20px 6px 4px;
+}
+
+.price-list.price-list-checklist{
+  margin:0;
+  padding-top:18px;
+}
+
+.price-list div{
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+  color:var(--ink-soft);
+  font-weight:500;
+}
+
+.price-list-checklist li{
+  position:relative;
+  list-style:none;
+  padding:14px 0 14px 28px;
+  border-bottom:1px solid var(--line);
+  color:var(--ink-soft);
+  font-weight:500;
+}
+
+.price-list-checklist li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:18px;
+  width:15px;
+  height:15px;
+  border-radius:999px;
+  background:#fff1e4;
+  border:1px solid rgba(243,122,74,.24);
+}
+
+.price-list-checklist li::after{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:22px;
+  width:6px;
+  height:3px;
+  border-left:2px solid var(--orange);
+  border-bottom:2px solid var(--orange);
+  transform:rotate(-45deg);
+}
+
+.price-card :global(.btn){
+  width:100%;
+  margin-top:22px;
+}
+
+.price-note{
+  max-width:24rem;
+  margin:12px auto 0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+  text-align:center;
+}
+
+@media (max-width:1120px){
+
+  .final-copy{
+    max-width:52rem;
+  }
+}
+
+@media (max-width:920px){
+
+  .final-cta{
+    grid-template-columns:1fr;
+  }
+
+  .price-card{
+    max-width:560px;
+  }
+
+  .final-copy{
+    max-width:52rem;
+  }
+}
+
+@media (max-width:720px){
+
+  .price-list div{
+    font-size:16px;
+  }
+}
+</style>

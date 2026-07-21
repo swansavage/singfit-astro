@@ -22,3 +22,188 @@ import LogoLockup from './ui/LogoLockup.astro';
     <p>Talk with the SingFit team. No obligation.</p>
   </div>
 </footer>
+
+<style>
+
+
+.footer{
+  display:grid;
+  grid-template-columns:max-content minmax(260px, 320px) max-content max-content;
+  justify-content:space-between;
+  align-items:center;
+  gap:22px clamp(28px, 3.2vw, 44px);
+  margin:0;
+  padding:32px max(var(--site-padding), calc((100vw - 1280px) / 2 + var(--site-padding)));
+  border-top:1px solid var(--line);
+  background:rgba(255,255,255,.72);
+}
+
+.footer > :global(*){
+  max-width:none;
+  min-width:0;
+}
+
+:global(.brand.footer-logo-brand){
+  flex-direction:column;
+  align-items:flex-start;
+  align-self:center;
+  gap:7px;
+}
+
+:global(.footer-logo-brand .singfit-logo-img){
+  height:30px;
+  max-width:150px;
+}
+
+:global(.footer-logo-brand .brand-product){
+  margin-left:0;
+}
+
+.footer-legal{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  justify-self:start;
+}
+
+.footer-links{
+  display:grid;
+  justify-items:start;
+  gap:10px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.footer-links a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.footer-links a:hover{
+  color:var(--ink);
+}
+
+.footer-cta{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+  justify-self:end;
+}
+
+.footer-cta p{
+  max-width:18rem;
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+  text-align:right;
+}
+
+.stores{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.stores.official-footer-badges{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  justify-self:end;
+}
+
+@media (max-width:920px){
+
+  .footer{
+    grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+    align-items:start;
+    gap:24px 28px;
+  }
+
+  .footer-legal{
+    grid-column:1 / 2;
+    grid-row:2 / 3;
+  }
+
+  .footer-links{
+    grid-column:2 / 3;
+    grid-row:1 / 2;
+    align-self:start;
+  }
+
+  .footer-cta{
+    grid-column:2 / 3;
+    grid-row:2 / 3;
+    justify-self:start;
+    align-items:flex-start;
+  }
+}
+
+@media (max-width:720px){
+
+  .footer-links{
+    font-size:16px;
+  }
+
+  :global(.footer-logo-brand .brand-product){
+    display:block;
+  }
+
+  .footer-legal{
+    font-size:12.5px;
+  }
+
+  .footer-cta p{
+    text-align:left;
+  }
+}
+
+@media (max-width:560px){
+
+  .footer{
+    grid-template-columns:1fr;
+    justify-items:center;
+    text-align:center;
+    gap:18px;
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  :global(.brand.footer-logo-brand),
+.footer-legal,
+.footer-links,
+.footer-cta{
+    grid-column:1;
+    grid-row:auto;
+    justify-self:center;
+    align-items:center;
+  }
+
+  :global(.brand.footer-logo-brand){
+    align-items:center;
+  }
+
+  .footer-legal{
+    width:100%;
+    max-width:22rem;
+  }
+
+  .footer-links{
+    width:100%;
+    justify-items:center;
+    gap:8px;
+  }
+
+  .footer-cta{
+    width:100%;
+    align-items:center;
+  }
+
+  .footer-cta p{
+    text-align:center;
+  }
+}
+</style>

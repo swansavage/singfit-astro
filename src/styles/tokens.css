@@ -1,0 +1,25 @@
+/* Design tokens copied verbatim from the Phase 4 stylesheet. */
+:root{
+  --ink:#162331;
+  --ink-soft:#344a5b;
+  --muted:#6f8090;
+  --paper:#ffffff;
+  --warm:#f6fbfb;
+  --warm-2:#edf8f7;
+  --orange:#f37a4a;
+  --orange-soft:#ffe3d7;
+  --teal:#249f9a;
+  --teal-deep:#1f7275;
+  --teal-soft:#e4f5f2;
+  --lav:#eef2ff;
+  --line:rgba(23,33,43,.10);
+  --shadow:0 30px 90px rgba(23,33,43,.11);
+  --soft-shadow:0 20px 56px rgba(23,33,43,.075);
+  --site-padding:clamp(22px, 4.7vw, 58px);
+  --section-gap:clamp(68px, 7vw, 92px);
+}
+@media (max-width:720px){
+  :root{
+    --section-gap:72px;
+  }
+}
