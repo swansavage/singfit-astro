@@ -1,0 +1,41 @@
+---
+import { SECTION_CTAS, TESTIMONIALS } from '../../data/landing-page';
+import SectionCta from '../ui/SectionCta.astro';
+---
+
+<section class="section testimonial-flow" id="stories">
+  <div class="testimonial-intro">
+    <div>
+      <h2>Real stories that show how SingFit is being used.</h2>
+    </div>
+    <p>
+      Caregivers are using SingFit to bring more singing, laughter, and connection into everyday time with someone they love.
+    </p>
+  </div>
+
+  <div class="testimonial-carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Caregiver testimonials">
+    <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous testimonial" data-prev><span>‹</span></button>
+
+    <div class="carousel-viewport" aria-live="polite">
+      <div class="carousel-track" data-track>
+        {TESTIMONIALS.map((testimonial) => (
+          <article class="carousel-slide" aria-roledescription="slide">
+            <div class="slide-inner">
+              <blockquote>{testimonial.quote}</blockquote>
+              <p>{testimonial.attribution}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <button class="carousel-arrow carousel-next" type="button" aria-label="Next testimonial" data-next><span>›</span></button>
+
+    <div class="carousel-dots" aria-label="Testimonial slides" data-dots>
+      {TESTIMONIALS.map((_, index) => (
+        <button type="button" aria-label={`Show testimonial ${index + 1}`} class={index === 0 ? 'is-active' : undefined}></button>
+      ))}
+    </div>
+  </div>
+  <SectionCta {...SECTION_CTAS.testimonials} />
+</section>

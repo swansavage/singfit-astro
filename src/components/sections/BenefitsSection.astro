@@ -1,0 +1,39 @@
+---
+import { BENEFITS, SECTION_CTAS } from '../../data/landing-page';
+import ProductPhoneVideo from '../ui/ProductPhoneVideo.astro';
+import SectionCta from '../ui/SectionCta.astro';
+---
+
+<section class="section center" id="benefits">
+  <div class="benefits-intro-row">
+    <div class="benefits-intro-copy">
+      <h2>Designed to encourage engagement and meaningful connection through singing together.</h2>
+      <p class="lead">
+        A familiar song can do more than play in the background. Following the lyrics, singing along, and using prompts can turn a quiet moment into a shared activity.
+      </p>
+    </div>
+
+    <div class="benefits-intro-media">
+      <ProductPhoneVideo
+        src="/media/screen-capture1.mp4"
+        ariaLabel="Preview of a guided SingFit STUDIO Caregiver session"
+        variant="intro"
+      />
+    </div>
+  </div>
+
+  <div class="benefit-editorial">
+    {BENEFITS.map((benefit) => (
+      <article class="benefit-row">
+        <div class="benefit-image benefit-real-image uniform-benefit-image">
+          <img src={benefit.image.src} alt={benefit.alt}>
+        </div>
+        <div class="benefit-copy">
+          <h3>{benefit.heading}</h3>
+          <p>{benefit.body}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+  <SectionCta {...SECTION_CTAS.benefits} />
+</section>

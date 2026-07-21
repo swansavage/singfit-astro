@@ -1,0 +1,40 @@
+---
+import { CALENDLY_URL, MAIN_NAVIGATION } from '../data/site';
+import CtaLink from './ui/CtaLink.astro';
+import LogoLockup from './ui/LogoLockup.astro';
+---
+
+<header class="topbar" role="banner">
+  <LogoLockup />
+
+  <nav class="nav desktop-nav" aria-label="Primary navigation">
+    {MAIN_NAVIGATION.map((item) => <a href={item.href}>{item.label}</a>)}
+    <CtaLink label="Free Walkthrough" href={CALENDLY_URL} variant="nav" />
+  </nav>
+
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu-drawer" data-menu-toggle>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="menu-overlay" data-menu-overlay aria-hidden="true"></div>
+
+  <aside id="mobile-menu-drawer" class="mobile-drawer" aria-label="Mobile navigation" data-mobile-drawer aria-hidden="true">
+    <div class="drawer-top">
+      <LogoLockup />
+
+      <button class="drawer-close" type="button" aria-label="Close menu" data-menu-close>×</button>
+    </div>
+
+    <nav class="drawer-nav">
+      {MAIN_NAVIGATION.map((item) => <a href={item.href}>{item.label}</a>)}
+      <CtaLink label="Free Walkthrough" href={CALENDLY_URL} variant="plain" />
+    </nav>
+
+    <div class="drawer-note">
+      <strong>Free 20-minute walkthrough</strong>
+      <span>Talk with the SingFit team. No obligation.</span>
+    </div>
+  </aside>
+</header>

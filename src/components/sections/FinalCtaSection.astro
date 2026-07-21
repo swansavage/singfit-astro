@@ -1,0 +1,37 @@
+---
+import { CALENDLY_URL } from '../../data/site';
+import CtaLink from '../ui/CtaLink.astro';
+---
+
+<section class="section final-cta" id="pricing">
+  <div class="final-copy">
+    <h2>Let's see if SingFit is right for you.</h2>
+    <p class="lead">
+      Every family is different. Schedule a free walkthrough to see how STUDIO Caregiver works, ask questions, and explore whether it’s a good fit for the person you care for.
+    </p>
+
+    <div class="proof-line">
+      <span>Guided singing walkthrough</span>
+      <span>Built for caregivers at home</span>
+    </div>
+  </div>
+
+  <div class="price-card">
+    <div class="price-top">
+      <small>FREE WALKTHROUGH</small>
+      <div class="price-inline">
+        <strong>20-minute</strong>
+        <span>live demo</span>
+      </div>
+    </div>
+
+    <ul class="price-list price-list-checklist" aria-label="Walkthrough details">
+      <li>Guided app tour</li>
+      <li>Questions &amp; answers</li>
+      <li>Personalized ideas for your caregiving routine</li>
+    </ul>
+
+    <CtaLink label="Schedule Your Free Walkthrough" href={CALENDLY_URL} variant="primary" />
+    <p class="price-note">No obligation. Just a chance to see whether SingFit is right for your family.</p>
+  </div>
+</section>

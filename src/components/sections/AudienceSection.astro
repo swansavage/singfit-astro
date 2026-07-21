@@ -1,0 +1,45 @@
+---
+import audienceCaregiverPhoto from '../../assets/audience/E_YpTUiw.jpeg';
+import { AUDIENCE_SITUATIONS, SECTION_CTAS } from '../../data/landing-page';
+import ProductPhoneVideo from '../ui/ProductPhoneVideo.astro';
+import SectionCta from '../ui/SectionCta.astro';
+---
+
+<section class="section who-redesign" id="who">
+  <div class="who-situation-layout">
+    <div class="who-intro">
+      <h2>Some days, it is hard to know what to do together.</h2>
+      <p class="lead">
+        STUDIO Caregiver is designed for family caregivers supporting an older loved one when conversation or shared activities feel harder than they used to. It gives you a guided way to sing familiar songs together instead of wondering what to do next.
+      </p>
+    </div>
+
+    <div class="who-image-panel">
+      <div class="who-image-stage">
+        <div class="who-real-image-panel">
+          <img src={audienceCaregiverPhoto.src} alt="A caregiver and older loved one singing together while listening and following along with SingFit">
+        </div>
+
+        <ProductPhoneVideo
+          src="/media/screen-capture2.mp4"
+          ariaLabel="Preview of the SingFit STUDIO Caregiver Lyric Coach experience"
+          variant="floating"
+        />
+      </div>
+    </div>
+
+    <div class="who-situation-list">
+      {AUDIENCE_SITUATIONS.map((situation) => (
+        <div class="who-situation">
+          <span>{situation.number}</span>
+          <div>
+            <h3>{situation.heading}</h3>
+            <p>{situation.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <SectionCta {...SECTION_CTAS.audience} variant="audience" />
+</section>

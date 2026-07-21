@@ -1,0 +1,31 @@
+---
+import { SECTION_CTAS } from '../../data/landing-page';
+import { VIMEO_SESSION } from '../../data/site';
+import SectionCta from '../ui/SectionCta.astro';
+---
+
+<section class="section" id="video">
+  <div class="video-panel">
+    <div>
+      <h2>See what a guided sing-along looks like.</h2>
+      <p class="lead">
+        Watch a short walkthrough of SingFit STUDIO Caregiver and see how lyric coaching, guide vocals, and conversation prompts turn familiar songs into something you can do together.
+      </p>
+    </div>
+
+    <div class="video-box video-embed">
+      <iframe
+        src={VIMEO_SESSION.embedUrl}
+        title={VIMEO_SESSION.title}
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        allowfullscreen>
+      </iframe>
+      <noscript>
+        <p><a href={VIMEO_SESSION.fallbackUrl}>Watch the SingFit session video on Vimeo</a></p>
+      </noscript>
+    </div>
+  </div>
+  <SectionCta {...SECTION_CTAS.sessionVideo} />
+</section>

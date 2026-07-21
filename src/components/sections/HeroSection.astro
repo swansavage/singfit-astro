@@ -1,0 +1,36 @@
+---
+import heroCaregiverPhoto from '../../assets/hero/Fixed Laina Testimonial Image.png';
+import studioControlsDevice from '../../assets/hero/asset-05.png';
+import { CALENDLY_URL } from '../../data/site';
+import CtaLink from '../ui/CtaLink.astro';
+---
+
+<section class="hero">
+  <div>
+    <h1>Guided singing for dementia and memory care.</h1>
+    <p class="hero-copy">
+      SingFit STUDIO Caregiver helps family caregivers sing familiar songs together with someone living with dementia, memory loss, or cognitive decline using lyric coaching, guide vocals, and built-in prompts.
+    </p>
+
+    <div class="actions">
+      <CtaLink label="Talk with the SingFit Team" href={CALENDLY_URL} variant="primary" />
+      <CtaLink label="See a session" href="#video" variant="secondary" />
+    </div>
+
+    <p class="microcopy">Free 20-minute conversation about your caregiving routine and how SingFit may fit into it. No obligation.</p>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-stage">
+      <div class="hero-image-panel">
+        <div class="hero-image-art hero-photo-art">
+          <img src={heroCaregiverPhoto.src} alt="Two women smiling at each other beside a tablet during a SingFit session">
+        </div>
+      </div>
+
+      <div class="iphone hero-phone-image">
+        <img src={studioControlsDevice.src} alt="SingFit STUDIO controls showing Lyric Coach, Guide Singer, Your Voice, and playback speed">
+      </div>
+    </div>
+  </div>
+</section>

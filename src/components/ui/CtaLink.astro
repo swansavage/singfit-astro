@@ -1,0 +1,21 @@
+---
+type CtaVariant = 'primary' | 'secondary' | 'nav' | 'plain';
+
+interface Props {
+  label: string;
+  href: string;
+  variant: CtaVariant;
+  target?: '_blank';
+  rel?: 'noopener noreferrer';
+}
+
+const { label, href, variant, target, rel } = Astro.props;
+const className = {
+  primary: 'btn btn-primary',
+  secondary: 'btn btn-secondary',
+  nav: 'nav-cta',
+  plain: undefined,
+}[variant];
+---
+
+<a class={className} href={href} target={target} rel={rel}>{label}</a>

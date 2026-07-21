@@ -1,0 +1,28 @@
+---
+interface Props {
+  src: '/media/screen-capture1.mp4' | '/media/screen-capture2.mp4';
+  ariaLabel: string;
+  variant: 'floating' | 'intro';
+}
+
+const { src, ariaLabel, variant } = Astro.props;
+const className = variant === 'floating'
+  ? 'product-phone product-phone-floating'
+  : 'product-phone product-phone-intro';
+---
+
+<div class={className}>
+  <div class="product-phone-screen">
+    <video
+      class="product-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      disablepictureinpicture
+      aria-label={ariaLabel}>
+      <source src={src} type="video/mp4">
+    </video>
+  </div>
+</div>

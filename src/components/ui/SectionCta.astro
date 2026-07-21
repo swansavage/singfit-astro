@@ -1,0 +1,20 @@
+---
+import { CALENDLY_URL } from '../../data/site';
+import CtaLink from './CtaLink.astro';
+
+interface Props {
+  label: string;
+  note: string;
+  variant?: 'default' | 'audience';
+}
+
+const { label, note, variant = 'default' } = Astro.props;
+const className = variant === 'audience'
+  ? 'section-cta section-cta-left who-section-cta'
+  : 'section-cta';
+---
+
+<div class={className}>
+  <CtaLink label={label} href={CALENDLY_URL} variant="primary" />
+  <p class="section-cta-note">{note}</p>
+</div>
