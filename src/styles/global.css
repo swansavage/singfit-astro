@@ -51,7 +51,7 @@ p{
 }
 
 :focus-visible{
-  outline:3px solid rgba(31,114,117,.55);
+  outline:3px solid var(--focus-ring);
   outline-offset:4px;
 }
 
@@ -73,7 +73,7 @@ p{
 
 .skip-link:focus{
   transform:translateY(0);
-  outline:3px solid rgba(244,124,69,.55);
+  outline:3px solid var(--focus-ring-on-dark);
   outline-offset:3px;
 }
 
@@ -166,13 +166,13 @@ body.menu-open .mobile-drawer{
 .drawer-close:focus-visible,
 .carousel-arrow:focus-visible,
 .carousel-dots button:focus-visible{
-  outline:3px solid rgba(31,114,117,.65);
+  outline:3px solid var(--focus-ring);
   outline-offset:4px;
 }
 
 .drawer-nav a:last-child:focus-visible,
 .btn-primary:focus-visible{
-  outline-color:rgba(23,33,43,.75);
+  outline-color:var(--focus-ring-on-orange);
 }
 
 .store-signal{
@@ -218,7 +218,7 @@ body.menu-open .mobile-drawer{
 }
 
 .official-store-badges a:focus-visible{
-  outline:3px solid rgba(247,111,64,.55);
+  outline:3px solid var(--focus-ring);
   outline-offset:4px;
 }
 

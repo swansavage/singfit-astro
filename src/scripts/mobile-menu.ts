@@ -6,6 +6,7 @@ function initializeMobileMenu() {
   const overlay = document.querySelector<HTMLElement>('[data-menu-overlay]');
   const drawerLinks = document.querySelectorAll<HTMLAnchorElement>('.drawer-nav a');
   let lastFocusedElement: (Element & { focus?: () => void }) | null = null;
+  const previousInertStates = new Map<HTMLElement, boolean>();
 
   if (!toggle || !drawer || !closeButton || !overlay) return;
 
@@ -14,18 +15,52 @@ function initializeMobileMenu() {
   const menuCloseButton = closeButton;
   const menuOverlay = overlay;
 
+  const backgroundElements = [
+    document.querySelector<HTMLElement>('.skip-link'),
+    ...Array.from(menuDrawer.parentElement?.children ?? [])
+      .filter((element) => element !== menuDrawer && element !== menuOverlay),
+    document.querySelector<HTMLElement>('main'),
+    document.querySelector<HTMLElement>('footer'),
+  ].filter((element): element is HTMLElement => element instanceof HTMLElement);
+
+  function setBackgroundInert(isInert: boolean) {
+    if (isInert) {
+      backgroundElements.forEach((element) => {
+        previousInertStates.set(element, element.inert);
+        element.inert = true;
+      });
+      return;
+    }
+
+    backgroundElements.forEach((element) => {
+      element.inert = previousInertStates.get(element) ?? false;
+    });
+    previousInertStates.clear();
+  }
+
   function setMenuState(isOpen: boolean) {
     body.classList.toggle('menu-open', isOpen);
     menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuDrawer.setAttribute('aria-hidden', String(!isOpen));
     menuOverlay.setAttribute('aria-hidden', String(!isOpen));
+    menuDrawer.setAttribute('aria-modal', String(isOpen));
 
     if (isOpen) {
       lastFocusedElement = document.activeElement;
+      menuDrawer.inert = false;
+      menuDrawer.setAttribute('aria-hidden', 'false');
       menuCloseButton.focus();
-    } else if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      setBackgroundInert(true);
+      return;
+    }
+
+    setBackgroundInert(false);
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
       lastFocusedElement.focus();
     }
+
+    menuDrawer.inert = true;
+    menuDrawer.setAttribute('aria-hidden', 'true');
   }
 
   function openMenu() {
@@ -42,7 +77,7 @@ function initializeMobileMenu() {
   drawerLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
+    if (event.key === 'Escape' && body.classList.contains('menu-open')) closeMenu();
 
     if (event.key === 'Tab' && body.classList.contains('menu-open')) {
       const focusable = menuDrawer.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');

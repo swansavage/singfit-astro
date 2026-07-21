@@ -11,14 +11,14 @@ import TestimonialsSection from '../components/sections/TestimonialsSection.astr
 import FaqSection from '../components/sections/FaqSection.astro';
 import FinalCtaSection from '../components/sections/FinalCtaSection.astro';
 import LegalDisclaimer from '../components/LegalDisclaimer.astro';
-import { PAGE_TITLE } from '../data/site';
+import { PAGE_TITLE, SNAPSHOT_ROBOTS_DIRECTIVE } from '../data/site';
 ---
 
-<SiteLayout title={PAGE_TITLE}>
-<main class="page" id="main-content">
-  <div class="site">
-    <SiteHeader />
+<SiteLayout title={PAGE_TITLE} robots={SNAPSHOT_ROBOTS_DIRECTIVE}>
+<div class="site">
+  <SiteHeader />
 
+  <main class="page" id="main-content">
     <HeroSection />
 
     <AudienceSection />
@@ -34,8 +34,8 @@ import { PAGE_TITLE } from '../data/site';
     <FinalCtaSection />
 
     <LegalDisclaimer />
+  </main>
 
-    <SiteFooter />
-  </div>
-</main>
+  <SiteFooter />
+</div>
 </SiteLayout>

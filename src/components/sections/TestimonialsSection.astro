@@ -16,10 +16,15 @@ import SectionCta from '../ui/SectionCta.astro';
   <div class="testimonial-carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Caregiver testimonials">
     <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous testimonial" data-prev><span>‹</span></button>
 
-    <div class="carousel-viewport" aria-live="polite">
+    <div class="carousel-viewport" aria-live="off">
       <div class="carousel-track" data-track>
-        {TESTIMONIALS.map((testimonial) => (
-          <article class="carousel-slide" aria-roledescription="slide">
+        {TESTIMONIALS.map((testimonial, index) => (
+          <article
+            class="carousel-slide"
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${TESTIMONIALS.length}`}
+            aria-hidden={index === 0 ? 'false' : 'true'}
+            inert={index !== 0}>
             <div class="slide-inner">
               <blockquote>{testimonial.quote}</blockquote>
               <p>{testimonial.attribution}</p>
@@ -31,11 +36,18 @@ import SectionCta from '../ui/SectionCta.astro';
 
     <button class="carousel-arrow carousel-next" type="button" aria-label="Next testimonial" data-next><span>›</span></button>
 
+    <div class="carousel-status" aria-live="polite" aria-atomic="true" data-carousel-status></div>
+
     <div class="carousel-dots" aria-label="Testimonial slides" data-dots>
       {TESTIMONIALS.map((_, index) => (
-        <button type="button" aria-label={`Show testimonial ${index + 1}`} class={index === 0 ? 'is-active' : undefined}></button>
+        <button type="button" aria-label={`Show testimonial ${index + 1}`} aria-current={index === 0 ? 'true' : 'false'} class={index === 0 ? 'is-active' : undefined}></button>
       ))}
     </div>
+
+    <button class="carousel-pause" type="button" aria-label="Pause testimonial rotation" aria-pressed="false" data-carousel-pause>
+      <span class="carousel-pause-icon" aria-hidden="true" data-carousel-pause-icon>Ⅱ</span>
+      <span data-carousel-pause-label>Pause</span>
+    </button>
   </div>
   <SectionCta {...SECTION_CTAS.testimonials} />
 </section>
@@ -147,28 +159,77 @@ import SectionCta from '../ui/SectionCta.astro';
   bottom:28px;
   z-index:6;
   display:flex;
-  gap:10px;
+  gap:0;
 }
 
 .carousel-dots button{
-  width:9px;
-  height:9px;
+  width:24px;
+  height:24px;
   padding:0;
   border:0;
   border-radius:999px;
-  background:rgba(23,33,43,.20);
+  display:grid;
+  place-items:center;
+  background:transparent;
   cursor:pointer;
+}
+
+.carousel-dots button::before{
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:rgba(23,33,43,.20);
+  content:"";
   transition:width .28s ease, background .28s ease;
 }
 
 .carousel-dots button.is-active{
   width:34px;
+}
+
+.carousel-dots button.is-active::before{
+  width:34px;
   background:var(--ink);
 }
 
-.carousel-pause,
-[data-carousel-pause]{
-  display:none !important;
+.carousel-pause{
+  position:absolute;
+  right:clamp(28px, 8vw, 92px);
+  bottom:22px;
+  z-index:6;
+  min-width:78px;
+  min-height:38px;
+  padding:7px 12px;
+  border:1px solid rgba(23,33,43,.12);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  background:rgba(255,255,255,.82);
+  color:var(--ink);
+  box-shadow:0 8px 20px rgba(23,33,43,.08);
+  font:700 13px/1 "Source Sans 3",system-ui,sans-serif;
+  cursor:pointer;
+}
+
+.carousel-pause:hover{background:#fff}
+
+.carousel-pause-icon{
+  min-width:10px;
+  font-size:12px;
+}
+
+.carousel-status{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 
 @media (max-width:920px){
@@ -207,6 +268,11 @@ import SectionCta from '../ui/SectionCta.astro';
 
   .carousel-dots{
     bottom:36px;
+  }
+
+  .carousel-pause{
+    right:22px;
+    bottom:29px;
   }
 }
 </style>

@@ -1,6 +1,7 @@
 export const SITE_NAME = 'SingFit STUDIO Caregiver';
 export const PRODUCT_DESCRIPTOR = 'STUDIO Caregiver';
 export const PAGE_TITLE = 'SingFit STUDIO Caregiver Walkthrough';
+export const SNAPSHOT_ROBOTS_DIRECTIVE = 'noindex, nofollow' as const;
 
 export const CALENDLY_URL = 'https://calendly.com/rachelfrancine/complimentary-singfit-session';
 

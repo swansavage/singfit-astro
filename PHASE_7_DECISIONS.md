@@ -193,3 +193,57 @@ Only approved work should select from this list:
 | Browser console | No warnings or errors observed during runtime checks. |
 
 Phase 7A changed only this audit document. No production implementation file, integration, metadata, deployment configuration, dependency manifest, lockfile, asset, or legacy file was modified.
+
+## 13. Phase 7B implementation record
+
+Phase 7B was approved for accessibility improvements and unofficial snapshot readiness. It implemented the following limited scope:
+
+- Moved the header and footer outside the main landmark without changing their visual order or geometry.
+- Enlarged carousel-dot buttons to at least 24×24 CSS pixels while preserving the visible dot treatment.
+- Added an integrated carousel pause/play button, persistent explicit pause state, reduced-motion startup pause, focus/hover pause state, active-slide exposure, and manual-only announcements.
+- Added integrated native play/pause buttons to both product-phone videos, persistent user intent across viewport changes, and reduced-motion autoplay prevention.
+- Added dialog/modal semantics and reversible background `inert` handling to the existing mobile drawer.
+- Added a typed snapshot robots directive that emits exactly `<meta name="robots" content="noindex, nofollow" />`.
+- Corrected the approved color and focus contrast values listed below.
+
+### Approved color changes
+
+Ratios use WCAG relative luminance calculations. Translucent old focus colors are shown after compositing against the named background.
+
+| Use | Old value and measured ratio | New value and measured ratio |
+| --- | --- | --- |
+| White CTA text on orange | `#ffffff` on `#f37a4a`: 2.730:1 | `#ffffff` on `#b94b24`: 5.129:1 |
+| Orange step numbers on `#fff1e4` | `#f37a4a`: 2.464:1 | `#b94b24`: 4.629:1 |
+| Muted text on white | `#6f8090`: 4.065:1 | `#5f7180`: 5.048:1 |
+| Global focus ring on white | `rgba(31,114,117,.55)` → `#84b1b3`: 2.354:1 | `#1f7275`: 5.642:1 |
+| Control focus ring on white | `rgba(31,114,117,.65)` → `#6da3a5`: 2.825:1 | `#1f7275`: 5.642:1 |
+| Skip-link focus ring on `#162331` | `rgba(244,124,69,.55)` → `#90543c`: 2.668:1 | `#ffb594`: 9.318:1 |
+| Primary-CTA focus ring on orange | `rgba(23,33,43,.75)` → `#4e3733` on `#f37a4a`: 4.011:1 | `#162331` on `#b94b24`: 3.105:1 |
+| Dormant badge focus ring on white | `rgba(247,111,64,.55)` → `#fbb096`: 1.787:1 | `#1f7275`: 5.642:1 |
+
+### Phase 7B verification outcome
+
+- Node `v24.18.0`, clean `npm ci`, Astro check, and static build passed.
+- Lighthouse 13.4.1 accessibility improved from 0.92 in Phase 7A to 1.00 with no remaining failed audits.
+- The three Phase 7A serious findings—text contrast, carousel motion control, and product-video motion control—are resolved.
+- Drawer focus entry, forward/backward wrapping, Escape close, focus restoration, scroll lock, modal state, closed-state inertness, and background inert restoration passed runtime checks.
+- Carousel auto-advance, explicit pause persistence, manual navigation while paused, active/inactive slide state, manual announcement text, and control state passed runtime checks.
+- Product-video autoplay for normal motion, pointer play/pause, explicit pause through viewport exit/re-entry, and explicit resume passed runtime checks.
+- The new carousel and video controls are native `<button>` elements, expose action-specific accessible names, enter the normal tab order, and show the corrected focus ring. The browser-control API did not synthesize native Enter/Space button activation, so a physical-key confirmation remains part of the informational real-browser follow-up.
+- Required viewport and breakpoint checks found no horizontal overflow, control overlap, crop change, phone-frame geometry change, carousel-height change, drawer geometry change, or footer-layout change. The generated page height matched the Phase 6 baseline at all six required viewports.
+- Lighthouse found no remaining contrast or target-size failure. Inactive carousel dots render at 24×24 CSS pixels; the active target renders at 34×24.
+- Reduced-motion startup behavior is enforced by source structure: videos have no HTML autoplay attribute, and both behavior modules gate automatic motion on the initial media-query result. The available in-app browser did not expose media-feature emulation, so a real OS/browser reduced-motion pass remains an informational follow-up.
+- A 720 CSS-pixel reflow check, equivalent to a 1440-pixel viewport at 200% zoom, passed without horizontal overflow or control overlap. A real-browser 200%/400% zoom and screen-reader pass remains an informational follow-up.
+
+Remaining known accessibility findings after Phase 7B: **0 critical, 0 serious, 1 moderate, 0 minor, and 1 informational**. The moderate item is the explicitly deferred JavaScript-disabled mobile-menu/testimonial fallback (`A26`). The informational item is the remaining real assistive-technology, OS-level reduced-motion, and browser-zoom verification across the final supported matrix.
+
+### Intentionally deferred after Phase 7B
+
+- JavaScript-disabled mobile-menu and testimonial fallbacks.
+- Meta description, canonical URL, Open Graph/Twitter metadata, social image, favicons, sitemap, `robots.txt`, structured data, verification tags, production domain, and Astro `site`.
+- Production host or Netlify configuration, redirects, CSP, security headers, and cache headers.
+- Google Fonts self-hosting, Vimeo consent gating, analytics, pixels, outbound tracking, cookies/storage, and consent tooling.
+- Permanent accessibility testing dependencies.
+- Empty `pricing/` disposition, unused images/store badges, dormant CSS, legacy source removal, README/deployment cleanup, and every other Phase 8 task.
+
+The page title, visible copy, all nine Calendly links, Vimeo configuration, external Google Fonts, legal links and copy, footer identity/address/year, MP4 paths and bytes, image assets/crops, absence of checkout/analytics/storage/consent, and all legacy files remain otherwise unchanged.

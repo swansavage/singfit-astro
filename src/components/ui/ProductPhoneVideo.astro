@@ -9,13 +9,14 @@ const { src, ariaLabel, variant } = Astro.props;
 const className = variant === 'floating'
   ? 'product-phone product-phone-floating'
   : 'product-phone product-phone-intro';
+const videoId = `product-video-${variant}`;
 ---
 
 <div class={className}>
   <div class="product-phone-screen">
     <video
+      id={videoId}
       class="product-video"
-      autoplay
       loop
       muted
       playsinline
@@ -24,6 +25,16 @@ const className = variant === 'floating'
       aria-label={ariaLabel}>
       <source src={src} type="video/mp4">
     </video>
+    <button
+      class="product-video-toggle"
+      type="button"
+      aria-controls={videoId}
+      aria-label={`Play video: ${ariaLabel}`}
+      data-product-video-toggle
+      data-video-label={ariaLabel}>
+      <span class="product-video-toggle-icon" aria-hidden="true" data-video-toggle-icon>▶</span>
+      <span data-video-toggle-label>Play</span>
+    </button>
   </div>
 </div>
 
@@ -90,6 +101,39 @@ const className = variant === 'floating'
   object-fit:cover;
   object-position:top center;
   background:#101a24;
+}
+
+.product-video-toggle{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  z-index:5;
+  min-height:34px;
+  padding:7px 10px;
+  border:1px solid rgba(255,255,255,.34);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  background:rgba(15,20,27,.78);
+  color:#fff;
+  box-shadow:0 6px 16px rgba(0,0,0,.22);
+  backdrop-filter:blur(8px);
+  font:700 12px/1 "Source Sans 3",system-ui,sans-serif;
+  cursor:pointer;
+}
+
+.product-video-toggle:hover{background:rgba(15,20,27,.92)}
+
+.product-video-toggle:focus-visible{
+  outline-color:var(--focus-ring-on-dark);
+  outline-offset:2px;
+}
+
+.product-video-toggle-icon{
+  min-width:9px;
+  font-size:10px;
 }
 
 @media (max-width:720px){
