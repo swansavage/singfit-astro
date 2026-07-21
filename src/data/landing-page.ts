@@ -1,8 +1,3 @@
-import type { ImageMetadata } from 'astro';
-import sandyCaregiverPhoto from '../assets/benefits/Sandy-Tubman-and-Caregiver-Picture-Light-Blue-Background.jpeg';
-import caregiverLaughingPhoto from '../assets/benefits/asset-08.png';
-import aliciaCaregiverPhoto from '../assets/benefits/Alicia-and-woman-pink-shirt-sing-clean.jpeg';
-
 export interface AudienceSituation {
   number: '01' | '02' | '03';
   heading: string;
@@ -30,7 +25,6 @@ export const AUDIENCE_SITUATIONS = [
 export interface Benefit {
   heading: string;
   body: string;
-  image: ImageMetadata;
   alt: string;
 }
 
@@ -38,19 +32,16 @@ export const BENEFITS = [
   {
     heading: 'Singing can create a brighter moment',
     body: 'Singing familiar songs together can provide a shared activity during a routine, visit, or difficult moment.',
-    image: sandyCaregiverPhoto,
     alt: 'An older woman singing expressively while a caregiver guides the SingFit experience on a tablet',
   },
   {
     heading: 'Familiar songs may encourage reminiscence and conversation',
     body: 'Singing familiar lyrics may encourage recognition, reminiscence, and conversation.',
-    image: caregiverLaughingPhoto,
     alt: 'A caregiver and older loved one laughing together during a SingFit sing-along on a tablet',
   },
   {
     heading: 'SingFit gives caregivers a way to lead',
     body: 'Lyric coaching, guide vocals, and prompts make it easier to start singing together and keep the moment going.',
-    image: aliciaCaregiverPhoto,
     alt: 'A caregiver using SingFit with an older loved one while guiding the next song together',
   },
 ] satisfies readonly Benefit[];

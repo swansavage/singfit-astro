@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import singfitLogo from '../../assets/brand/asset-01.png';
 import { PRODUCT_DESCRIPTOR } from '../../data/site';
 
@@ -11,7 +12,15 @@ const className = variant === 'footer' ? 'brand logo-brand footer-logo-brand' : 
 ---
 
 <div class={className}>
-  <img class="singfit-logo-img" src={singfitLogo.src} alt="SingFit">
+  <Image
+    class="singfit-logo-img"
+    src={singfitLogo}
+    alt="SingFit"
+    width={599}
+    format="png"
+    loading={variant === 'footer' ? 'lazy' : 'eager'}
+    decoding="async"
+  />
   <span class="brand-product">{PRODUCT_DESCRIPTOR}</span>
 </div>
 

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import audienceCaregiverPhoto from '../../assets/audience/E_YpTUiw.jpeg';
 import { AUDIENCE_SITUATIONS, SECTION_CTAS } from '../../data/landing-page';
 import ProductPhoneVideo from '../ui/ProductPhoneVideo.astro';
@@ -17,7 +18,17 @@ import SectionCta from '../ui/SectionCta.astro';
     <div class="who-image-panel">
       <div class="who-image-stage">
         <div class="who-real-image-panel">
-          <img src={audienceCaregiverPhoto.src} alt="A caregiver and older loved one singing together while listening and following along with SingFit">
+          <Image
+            src={audienceCaregiverPhoto}
+            alt="A caregiver and older loved one singing together while listening and following along with SingFit"
+            width={1560}
+            widths={[360, 720, 1080, 1560]}
+            sizes="(max-width: 560px) calc(100vw - 85px), (max-width: 920px) calc(100vw - 140px), 460px"
+            format="webp"
+            quality={88}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <ProductPhoneVideo

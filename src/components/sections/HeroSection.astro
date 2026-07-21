@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import heroCaregiverPhoto from '../../assets/hero/Fixed Laina Testimonial Image.png';
 import studioControlsDevice from '../../assets/hero/asset-05.png';
 import { CALENDLY_URL } from '../../data/site';
@@ -24,12 +25,31 @@ import CtaLink from '../ui/CtaLink.astro';
     <div class="hero-stage">
       <div class="hero-image-panel">
         <div class="hero-image-art hero-photo-art">
-          <img src={heroCaregiverPhoto.src} alt="Two women smiling at each other beside a tablet during a SingFit session">
+          <Image
+            src={heroCaregiverPhoto}
+            alt="Two women smiling at each other beside a tablet during a SingFit session"
+            width={1560}
+            widths={[320, 640, 960, 1280, 1560]}
+            sizes="(max-width: 420px) calc(100vw - 105px), (max-width: 560px) calc(100vw - 120px), (max-width: 720px) calc(100vw - 151px), (max-width: 1120px) min(762px, calc(100vw - 178px)), 550px"
+            format="webp"
+            quality={90}
+            priority
+          />
         </div>
       </div>
 
       <div class="iphone hero-phone-image">
-        <img src={studioControlsDevice.src} alt="SingFit STUDIO controls showing Lyric Coach, Guide Singer, Your Voice, and playback speed">
+        <Image
+          src={studioControlsDevice}
+          alt="SingFit STUDIO controls showing Lyric Coach, Guide Singer, Your Voice, and playback speed"
+          width={720}
+          widths={[240, 360, 480, 720]}
+          sizes="(max-width: 420px) 55vw, (max-width: 560px) 54vw, (max-width: 720px) 52vw, (max-width: 1120px) 34vw, 360px"
+          format="png"
+          loading="eager"
+          decoding="async"
+          fetchpriority="auto"
+        />
       </div>
     </div>
   </div>

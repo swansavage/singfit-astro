@@ -1,7 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import sandyCaregiverPhoto from '../../assets/benefits/Sandy-Tubman-and-Caregiver-Picture-Light-Blue-Background.jpeg';
+import caregiverLaughingPhoto from '../../assets/benefits/asset-08.png';
+import aliciaCaregiverPhoto from '../../assets/benefits/Alicia-and-woman-pink-shirt-sing-clean.jpeg';
 import { BENEFITS, SECTION_CTAS } from '../../data/landing-page';
 import ProductPhoneVideo from '../ui/ProductPhoneVideo.astro';
 import SectionCta from '../ui/SectionCta.astro';
+
+const [firstBenefit, secondBenefit, thirdBenefit] = BENEFITS;
 ---
 
 <section class="section center" id="benefits">
@@ -23,17 +29,62 @@ import SectionCta from '../ui/SectionCta.astro';
   </div>
 
   <div class="benefit-editorial">
-    {BENEFITS.map((benefit) => (
-      <article class="benefit-row">
-        <div class="benefit-image benefit-real-image uniform-benefit-image">
-          <img src={benefit.image.src} alt={benefit.alt}>
-        </div>
-        <div class="benefit-copy">
-          <h3>{benefit.heading}</h3>
-          <p>{benefit.body}</p>
-        </div>
-      </article>
-    ))}
+    <article class="benefit-row">
+      <div class="benefit-image benefit-real-image uniform-benefit-image">
+        <Image
+          src={sandyCaregiverPhoto}
+          alt={firstBenefit.alt}
+          widths={[400, 800, 978]}
+          sizes="(max-width: 420px) calc(100vw - 119px), (max-width: 560px) calc(100vw - 128px), (max-width: 720px) calc(100vw - 151px), (max-width: 920px) calc(100vw - 189px), 370px"
+          format="webp"
+          quality={88}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="benefit-copy">
+        <h3>{firstBenefit.heading}</h3>
+        <p>{firstBenefit.body}</p>
+      </div>
+    </article>
+
+    <article class="benefit-row">
+      <div class="benefit-image benefit-real-image uniform-benefit-image">
+        <Image
+          src={caregiverLaughingPhoto}
+          alt={secondBenefit.alt}
+          widths={[400, 800, 1448]}
+          sizes="(max-width: 420px) calc(100vw - 119px), (max-width: 560px) calc(100vw - 128px), (max-width: 720px) calc(100vw - 151px), (max-width: 920px) calc(100vw - 189px), 370px"
+          format="webp"
+          quality={88}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="benefit-copy">
+        <h3>{secondBenefit.heading}</h3>
+        <p>{secondBenefit.body}</p>
+      </div>
+    </article>
+
+    <article class="benefit-row">
+      <div class="benefit-image benefit-real-image uniform-benefit-image">
+        <Image
+          src={aliciaCaregiverPhoto}
+          alt={thirdBenefit.alt}
+          widths={[400, 800, 900]}
+          sizes="(max-width: 420px) calc(100vw - 119px), (max-width: 560px) calc(100vw - 128px), (max-width: 720px) calc(100vw - 151px), (max-width: 920px) calc(100vw - 189px), 370px"
+          format="webp"
+          quality={88}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="benefit-copy">
+        <h3>{thirdBenefit.heading}</h3>
+        <p>{thirdBenefit.body}</p>
+      </div>
+    </article>
   </div>
   <SectionCta {...SECTION_CTAS.benefits} />
 </section>
