@@ -1,1 +1,402 @@
-<h1>SingFit Astro migration environment</h1>
+
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import singfitLogo from '../assets/brand/asset-01.png';
+import heroCaregiverPhoto from '../assets/hero/Fixed Laina Testimonial Image.png';
+import studioControlsDevice from '../assets/hero/asset-05.png';
+import audienceCaregiverPhoto from '../assets/audience/E_YpTUiw.jpeg';
+import sandyCaregiverPhoto from '../assets/benefits/Sandy-Tubman-and-Caregiver-Picture-Light-Blue-Background.jpeg';
+import caregiverLaughingPhoto from '../assets/benefits/asset-08.png';
+import aliciaCaregiverPhoto from '../assets/benefits/Alicia-and-woman-pink-shirt-sing-clean.jpeg';
+---
+
+<SiteLayout>
+<main class="page" id="main-content">
+  <div class="site">
+    <header class="topbar" role="banner">
+      <div class="brand logo-brand">
+        <img class="singfit-logo-img" src={singfitLogo.src} alt="SingFit">
+        <span class="brand-product">STUDIO Caregiver</span>
+      </div>
+
+      <nav class="nav desktop-nav" aria-label="Primary navigation">
+        <a href="#video">See a session</a>
+        <a href="#who">Who it’s for</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#stories">Stories</a>
+        <a href="#questions">Questions</a>
+        <a class="nav-cta" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Free Walkthrough</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu-drawer" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="menu-overlay" data-menu-overlay aria-hidden="true"></div>
+
+      <aside id="mobile-menu-drawer" class="mobile-drawer" aria-label="Mobile navigation" data-mobile-drawer aria-hidden="true">
+        <div class="drawer-top">
+          <div class="brand logo-brand">
+            <img class="singfit-logo-img" src={singfitLogo.src} alt="SingFit">
+            <span class="brand-product">STUDIO Caregiver</span>
+          </div>
+
+          <button class="drawer-close" type="button" aria-label="Close menu" data-menu-close>×</button>
+        </div>
+
+        <nav class="drawer-nav">
+          <a href="#video">See a session</a>
+          <a href="#who">Who it’s for</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#stories">Stories</a>
+          <a href="#questions">Questions</a>
+          <a href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Free Walkthrough</a>
+        </nav>
+
+        <div class="drawer-note">
+          <strong>Free 20-minute walkthrough</strong>
+          <span>Talk with the SingFit team. No obligation.</span>
+        </div>
+      </aside>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Guided singing for dementia and memory care.</h1>
+        <p class="hero-copy">
+          SingFit STUDIO Caregiver helps family caregivers sing familiar songs together with someone living with dementia, memory loss, or cognitive decline using lyric coaching, guide vocals, and built-in prompts.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Talk with the SingFit Team</a>
+          <a class="btn btn-secondary" href="#video">See a session</a>
+        </div>
+
+        <p class="microcopy">Free 20-minute conversation about your caregiving routine and how SingFit may fit into it. No obligation.</p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-stage">
+          <div class="hero-image-panel">
+            <div class="hero-image-art hero-photo-art">
+              <img src={heroCaregiverPhoto.src} alt="Two women smiling at each other beside a tablet during a SingFit session">
+            </div>
+          </div>
+
+          <div class="iphone hero-phone-image">
+            <img src={studioControlsDevice.src} alt="SingFit STUDIO controls showing Lyric Coach, Guide Singer, Your Voice, and playback speed">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section who-redesign" id="who">
+      <div class="who-situation-layout">
+        <div class="who-intro">
+          <h2>Some days, it is hard to know what to do together.</h2>
+          <p class="lead">
+            STUDIO Caregiver is designed for family caregivers supporting an older loved one when conversation or shared activities feel harder than they used to. It gives you a guided way to sing familiar songs together instead of wondering what to do next.
+          </p>
+        </div>
+
+        <div class="who-image-panel">
+          <div class="who-image-stage">
+            <div class="who-real-image-panel">
+              <img src={audienceCaregiverPhoto.src} alt="A caregiver and older loved one singing together while listening and following along with SingFit">
+            </div>
+
+            <div class="product-phone product-phone-floating">
+              <div class="product-phone-screen">
+                <video
+                  class="product-video"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  preload="metadata"
+                  disablepictureinpicture
+                  aria-label="Preview of the SingFit STUDIO Caregiver Lyric Coach experience">
+                  <source src="/media/screen-capture2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="who-situation-list">
+          <div class="who-situation">
+            <span>01</span>
+            <div>
+              <h3>Dementia, memory loss, or cognitive decline</h3>
+              <p>Use familiar songs when words, attention, or conversation feel harder to reach.</p>
+            </div>
+          </div>
+
+          <div class="who-situation">
+            <span>02</span>
+            <div>
+              <h3>Reduced engagement or withdrawal</h3>
+              <p>Create an active alternative to passive listening, watching TV, or sitting quietly.</p>
+            </div>
+          </div>
+
+          <div class="who-situation">
+            <span>03</span>
+            <div>
+              <h3>Care routines that need more structure</h3>
+              <p>Give visits, afternoons, or home-care moments a familiar sing-along you can follow together.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-cta section-cta-left who-section-cta">
+        <a class="btn btn-primary" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">See if SingFit Fits Your Routine</a>
+        <p class="section-cta-note">Ask questions and learn whether guided singing sessions fit your family’s routine.</p>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <div class="video-panel">
+        <div>
+          <h2>See what a guided sing-along looks like.</h2>
+          <p class="lead">
+            Watch a short walkthrough of SingFit STUDIO Caregiver and see how lyric coaching, guide vocals, and conversation prompts turn familiar songs into something you can do together.
+          </p>
+        </div>
+
+        <div class="video-box video-embed">
+          <iframe
+            src="https://player.vimeo.com/video/1194167243?badge=0&autopause=0&player_id=singfit-session-video&app_id=58479"
+            title="Watch how a SingFit STUDIO Caregiver session works"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            allowfullscreen>
+          </iframe>
+          <noscript>
+            <p><a href="https://vimeo.com/1194167243">Watch the SingFit session video on Vimeo</a></p>
+          </noscript>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a class="btn btn-primary" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Get a Free App Walkthrough</a>
+        <p class="section-cta-note">A free product walkthrough to help you understand how guided singing sessions work.</p>
+      </div>
+    </section>
+
+    <section class="section center" id="benefits">
+      <div class="benefits-intro-row">
+        <div class="benefits-intro-copy">
+          <h2>Designed to encourage engagement and meaningful connection through singing together.</h2>
+          <p class="lead">
+            A familiar song can do more than play in the background. Following the lyrics, singing along, and using prompts can turn a quiet moment into a shared activity.
+          </p>
+        </div>
+
+        <div class="benefits-intro-media">
+          <div class="product-phone product-phone-intro">
+            <div class="product-phone-screen">
+              <video
+                class="product-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                disablepictureinpicture
+                aria-label="Preview of a guided SingFit STUDIO Caregiver session">
+                <source src="/media/screen-capture1.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="benefit-editorial">
+        <article class="benefit-row">
+          <div class="benefit-image benefit-real-image uniform-benefit-image">
+            <img src={sandyCaregiverPhoto.src} alt="An older woman singing expressively while a caregiver guides the SingFit experience on a tablet">
+          </div>
+          <div class="benefit-copy">
+            <h3>Singing can create a brighter moment</h3>
+            <p>Singing familiar songs together can provide a shared activity during a routine, visit, or difficult moment.</p>
+          </div>
+        </article>
+
+        <article class="benefit-row">
+          <div class="benefit-image benefit-real-image uniform-benefit-image">
+            <img src={caregiverLaughingPhoto.src} alt="A caregiver and older loved one laughing together during a SingFit sing-along on a tablet">
+          </div>
+          <div class="benefit-copy">
+            <h3>Familiar songs may encourage reminiscence and conversation</h3>
+            <p>Singing familiar lyrics may encourage recognition, reminiscence, and conversation.</p>
+          </div>
+        </article>
+
+        <article class="benefit-row">
+          <div class="benefit-image benefit-real-image uniform-benefit-image">
+            <img src={aliciaCaregiverPhoto.src} alt="A caregiver using SingFit with an older loved one while guiding the next song together">
+          </div>
+          <div class="benefit-copy">
+            <h3>SingFit gives caregivers a way to lead</h3>
+            <p>Lyric coaching, guide vocals, and prompts make it easier to start singing together and keep the moment going.</p>
+          </div>
+        </article>
+      </div>
+      <div class="section-cta">
+        <a class="btn btn-primary" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Ask About SingFit</a>
+        <p class="section-cta-note">See how lyric coaching, sing-along guidance, and prompts support participation at home.</p>
+      </div>
+    </section>
+
+    <section class="section testimonial-flow" id="stories">
+      <div class="testimonial-intro">
+        <div>
+          <h2>Real stories that show how SingFit is being used.</h2>
+        </div>
+        <p>
+          Caregivers are using SingFit to bring more singing, laughter, and connection into everyday time with someone they love.
+        </p>
+      </div>
+
+      <div class="testimonial-carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Caregiver testimonials">
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous testimonial" data-prev><span>‹</span></button>
+
+        <div class="carousel-viewport" aria-live="polite">
+          <div class="carousel-track" data-track>
+            <article class="carousel-slide" aria-roledescription="slide">
+              <div class="slide-inner">
+                <blockquote>“My mom has suffered with severe chronic pain for years. Her main activity is to watch TV. During our 1st SingFit session, she sang 15 songs... She's really enjoying this.”</blockquote>
+                <p>— Gabriella, Caregiver of her mother, who has MCI (vascular dementia) and chronic pain</p>
+              </div>
+            </article>
+
+            <article class="carousel-slide" aria-roledescription="slide">
+              <div class="slide-inner">
+                <blockquote>“I think his mood is more stable...In fact, he will say 'I think I'm coming back.' He's feeling more like himself. And I think this is really good.”</blockquote>
+                <p>— Jan, Caregiver of her husband who has MCI</p>
+              </div>
+            </article>
+
+            <article class="carousel-slide" aria-roledescription="slide">
+              <div class="slide-inner">
+                <blockquote>“We laughed a lot during the SingFit session - he was a different person totally. I'm so grateful for these memories. I can’t wait to tell my kids to try this.”</blockquote>
+                <p>— Jeanne, Caregiver of her husband with dementia</p>
+              </div>
+            </article>
+
+            <article class="carousel-slide" aria-roledescription="slide">
+              <div class="slide-inner">
+                <blockquote>“Frances looks forward to each SingFit session. She is very vocal about how much the singing helps her feel better.”</blockquote>
+                <p>— Mary Anne, Homecare Worker of her client Frances, who has dementia</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Next testimonial" data-next><span>›</span></button>
+
+        <div class="carousel-dots" aria-label="Testimonial slides" data-dots>
+          <button type="button" aria-label="Show testimonial 1" class="is-active"></button>
+          <button type="button" aria-label="Show testimonial 2"></button>
+          <button type="button" aria-label="Show testimonial 3"></button>
+          <button type="button" aria-label="Show testimonial 4"></button>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a class="btn btn-primary" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Talk with the SingFit Team</a>
+        <p class="section-cta-note">Free 20-minute conversation with the SingFit team about your caregiving routine.</p>
+      </div>
+    </section>
+
+    <section class="section center" id="questions">
+      <h2>Questions before you begin.</h2>
+
+      <div class="faq">
+        <div class="faq-row">
+          <h3>Do I need to be musical?</h3>
+          <p>No. STUDIO Caregiver is designed for everyday caregivers. The built-in lyric prompter and guided session structure help you sing along without needing to read, remember lyrics, or perform.</p>
+        </div>
+
+        <div class="faq-row">
+          <h3>Who is this designed for?</h3>
+          <p>Family caregivers supporting an older loved one, including people experiencing dementia, cognitive decline, or related health challenges.</p>
+        </div>
+
+        <div class="faq-row">
+          <h3>What happens after I schedule a walkthrough?</h3>
+          <p>You’ll have a complimentary 20-minute conversation with the SingFit team to ask questions, see how guided singing sessions work, and learn whether STUDIO Caregiver fits your routine.</p>
+        </div>
+
+        <div class="faq-row">
+          <h3>Is support available?</h3>
+          <p>Yes. We can help caregivers understand the app and feel confident using guided sing-along features at home.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta" id="pricing">
+      <div class="final-copy">
+        <h2>Let's see if SingFit is right for you.</h2>
+        <p class="lead">
+          Every family is different. Schedule a free walkthrough to see how STUDIO Caregiver works, ask questions, and explore whether it’s a good fit for the person you care for.
+        </p>
+
+        <div class="proof-line">
+          <span>Guided singing walkthrough</span>
+          <span>Built for caregivers at home</span>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-top">
+          <small>FREE WALKTHROUGH</small>
+          <div class="price-inline">
+            <strong>20-minute</strong>
+            <span>live demo</span>
+          </div>
+        </div>
+
+        <ul class="price-list price-list-checklist" aria-label="Walkthrough details">
+          <li>Guided app tour</li>
+          <li>Questions &amp; answers</li>
+          <li>Personalized ideas for your caregiving routine</li>
+        </ul>
+
+        <a class="btn btn-primary" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Schedule Your Free Walkthrough</a>
+        <p class="price-note">No obligation. Just a chance to see whether SingFit is right for your family.</p>
+      </div>
+    </section>
+
+    <aside class="legal-disclaimer" aria-label="Legal disclaimer">
+      <p>SingFit STUDIO Caregiver is designed to support engagement and shared musical experiences. It does not provide medical, therapeutic, or caregiving advice and is not intended to diagnose, treat, cure, or prevent any disease or health condition.</p>
+    </aside>
+
+    <footer class="footer">
+      <div class="brand logo-brand footer-logo-brand">
+        <img class="singfit-logo-img" src={singfitLogo.src} alt="SingFit">
+        <span class="brand-product">STUDIO Caregiver</span>
+      </div>
+      <p class="footer-legal">
+        ©2026 Musical Health Technologies. All Rights Reserved.<br>
+        1010 Wilshire Blvd. Los Angeles, CA 90017
+      </p>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://musicismedicine.singfit.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="https://musicismedicine.singfit.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+        <a href="https://musicismedicine.singfit.com/accessibility" target="_blank" rel="noopener noreferrer">Accessibility Statement</a>
+      </nav>
+
+      <div class="footer-cta">
+        <a class="btn btn-primary" href="https://calendly.com/rachelfrancine/complimentary-singfit-session">Free Walkthrough</a>
+        <p>Talk with the SingFit team. No obligation.</p>
+      </div>
+    </footer>
+  </div>
+</main>
+<script src="../scripts/main.js"></script>
+</SiteLayout>
