@@ -114,6 +114,6 @@ export const SECTION_CTAS = {
   },
   testimonials: {
     label: 'Talk with the SingFit Team',
-    note: 'Free 20-minute conversation with the SingFit team about your caregiving routine.',
+    note: 'Free 10-minute conversation with the SingFit team about your caregiving routine.',
   },
 } satisfies Record<'audience' | 'sessionVideo' | 'benefits' | 'testimonials', SectionCtaContent>;
